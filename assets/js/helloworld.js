@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import ReactDOM from 'react-dom';
 import socket from "./socket"
 
-
 function useChannel(onNewMessage) {
   let channel = socket.channel("room:lobby", {})
   channel.join()
@@ -18,7 +17,7 @@ function useChannel(onNewMessage) {
 }
 
 function App(props) {
-  const [messages, setMessages] = useState(window.Gon.assets().messages);
+  const [messages, setMessages] = useState(props.messages);
   const channel = useChannel(function(newMessage) {
     setMessages(val => [...val, newMessage]);
   });

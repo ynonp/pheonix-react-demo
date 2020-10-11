@@ -5,7 +5,6 @@ defmodule Hello.Message do
   @derive {Jason.Encoder, only: [:text, :id]}
   schema "messages" do
     field :text, :string
-
     timestamps()
   end
 
